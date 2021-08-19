@@ -10,18 +10,32 @@
 <body>
 
 <div id="root">
-    {{ message }}
+    <ul>
+        <todo-item></todo-item>
+    </ul>
 </div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script>
-    new Vue({
-        el: '#root',
-        data: {
-            message: 'Hello Vue!!!'
-        }
-    })
+
+
+    Vue.component('todo-item', {
+        props: ['todo'],
+        data:function (){
+            return {
+                message: 'TEST'
+            }
+        },
+        methods:{
+            change:function(){
+                this.message = this.message + '!';
+            }
+        },
+        template: '<li v-once>{{ message }} <button @click="change">click</button></li>'
+    });
+
+    new Vue({ el: '#root' });
 </script>
 </body>
 </html>
