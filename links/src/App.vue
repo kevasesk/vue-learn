@@ -1,5 +1,6 @@
 <template>
   <div id="root">
+    {{this.$root.$data.config}}
     <Links/>
   </div>
 </template>
